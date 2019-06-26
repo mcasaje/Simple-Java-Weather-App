@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Simple Java Weather</title>
+    <script>
+        const WEATHER_APP_API_URL = "http://localhost:8080/simplejavaweather/weather";
+
+        function submitWeatherQuery() {
+            const location = document.getElementById("location").value;
+            const loadingMessage = `Retrieving weather for '${location}'`;
+            addWeatherLog(loadingMessage);
+            const queryUrl = `${WEATHER_APP_API_URL}?location=${location}`;
+            const httpMethod = "GET";
+            fetchWeatherData(queryUrl, httpMethod, displayWeatherData);
+        }
+
+        function displayWeatherData(data) {
+            addWeatherLog(data);
+            addWeatherLogLineBreak();
+        }
+
+        function addWeatherLog(text) {
+            const newWeatherLogElement = document.createElement("span");
+            newWeatherLogElement.innerHTML = text;
+            document.getElementById("info").appendChild(newWeatherLogElement);
+            addWeatherLogLineBreak();
+        }
+
+        function addWeatherLogLineBreak() {
+            const newLineBreakElement = document.createElement("br");
+            document.getElementById("info").appendChild(newLineBreakElement);
+        }
+
+        function fetchWeatherData(url, method, successFn) {
+            let ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    successFn(this.responseText);
+                }
+            };
+            ajax.open(method, url, true);
+            ajax.send();
+        }
+    </script>
+</head>
+<body>
+<h1>Simple Java Weather App</h1>
+<form onSubmit="return false">
+    <label>
+        Location (eg. London, GB)
+        <input type="text" minlength="1" id="location"/>
+    </label>
+    <input type="submit" value="Get Weather Data!" onclick="submitWeatherQuery()"/>
+</form>
+<div id="info"></div>
+</body>
+</html>
