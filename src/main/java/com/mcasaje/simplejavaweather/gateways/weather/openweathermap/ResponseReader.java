@@ -1,4 +1,4 @@
-package com.mcasaje.simplejavaweather.gateways.openweathermap;
+package com.mcasaje.simplejavaweather.gateways.weather.openweathermap;
 
 import java.io.BufferedReader;
 import java.io.IOException;
