@@ -1,34 +1,46 @@
 package com.mcasaje;
 
+import com.google.inject.Guice;
+import com.google.inject.Module;
+import com.mcasaje.simplejavaweather.app.BindingsModule;
 import com.mcasaje.simplejavaweather.app.CORSResponseFilter;
-import org.glassfish.grizzly.http.server.HttpServer;
-import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import io.logz.guice.jersey.JerseyModule;
+import io.logz.guice.jersey.JerseyServer;
+import io.logz.guice.jersey.configuration.JerseyConfiguration;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import java.io.IOException;
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Main class.
- */
 public class Main {
 
     // TODO: Pull these variables out into a configuration file or as environment variables
-    public static final String BASE_URI = "http://localhost:8080/simplejavaweather/";
-    public static final String PACKAGE_ROOT = "com.mcasaje";
+    public static final String PACKAGE_ROOT = "com.mcasaje.simplejavaweather.resources";
 
-    public static HttpServer startServer() {
+    public static JerseyServer startServer() throws Exception {
         final ResourceConfig resourceConfig = new ResourceConfig().packages(PACKAGE_ROOT);
         resourceConfig.register(new CORSResponseFilter());
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), resourceConfig);
+
+        JerseyConfiguration configuration = JerseyConfiguration.builder()
+                .addPackage(PACKAGE_ROOT)
+                .addPort(8080)
+                .withResourceConfig(resourceConfig)
+                .build();
+
+        List<Module> modules = new ArrayList<>();
+        modules.add(new JerseyModule(configuration));
+        modules.add(new BindingsModule());
+
+        JerseyServer server = Guice.createInjector(modules)
+                .getInstance(JerseyServer.class);
+        server.start();
+        return server;
     }
 
-    public static void main(String[] args) throws IOException {
-        final HttpServer server = startServer();
-        System.out.println(String.format("Jersey app started with WADL available at "
-                                                 + "%sapplication.wadl\nHit enter to stop it...", BASE_URI));
+    public static void main(String[] args) throws Exception {
+        final JerseyServer server = startServer();
+        System.out.println("Jersey app started with WADL available at /application.wadl\nHit enter to stop it...");
         System.in.read();
         server.stop();
     }
 }
-
