@@ -7,9 +7,9 @@ public class CityIDFetcherTest {
 
     @Test
     public void createCityIDUrlAddress_testGivenCityAndCountryCodeThenReturnsExpectedUrlAddress() {
-        final String city = "My City";
+        final String city = "MyCity";
         final String countryCode = "GB";
-        final String expectedUrlAddress = String.format(CityIDFetcher.URL_FORMAT, city + ", " + countryCode);
+        final String expectedUrlAddress = String.format(CityIDFetcher.URL_FORMAT, city + ",%20" + countryCode);
         String actualUrlAddress = CityIDFetcher.createCityIDUrlAddress(city, countryCode);
         Assert.assertEquals(expectedUrlAddress, actualUrlAddress);
     }

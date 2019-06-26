@@ -25,7 +25,7 @@ class CityIDFetcher {
     }
 
     static String createCityIDUrlAddress(String city, String countryCode) {
-        String locationString = city + ", " + countryCode;
+        String locationString = city + ",%20" + countryCode;
         String urlAddress = String.format(URL_FORMAT, locationString);
         logger.info("Using URL to find city ID: " + urlAddress);
         return urlAddress;
