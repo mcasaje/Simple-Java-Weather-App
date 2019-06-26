@@ -1,6 +1,13 @@
 # Simple-Java-Weather-App
 
-## How to Use
+## Quick Start
+
+### Dependencies
+
+- Maven 3 (v3.3.9)
+- Java 8 (v1.8.0_152)
+
+### How to Run
 
 1. Run the backend API
 
@@ -18,15 +25,15 @@ This will run the backend on http://localhost:8080/simplejavaweather/
 - [x] Setup of Jersey API
 - [x] Enable CORS on backend API
 - [x] Create index page with form to submit to the backend API
-- [ ] Install Guice dependency for dependency injection
+- [x] Install Guice dependency for dependency injection
 - [ ] Install marshaller dependency to/from JSON
-- [ ] Retrieve weather data from OpenWeatherMap.org
-- [ ] Get City ID from OpenWeatherMap.org
-- [ ] Get City Weather using City ID from OpenWeatherMap.org
-- [ ] Parse weather data from OpenWeatherMap.org to extract overall weather description
-- [ ] Parse weather data from OpenWeatherMap.org to extract temperature in Celsius
-- [ ] Parse weather data from OpenWeatherMap.org to extract sunrise times
-- [ ] Parse weather data from OpenWeatherMap.org to extract sunset times
+- [x] Retrieve weather data from OpenWeatherMap.org
+- [x] Get City ID from OpenWeatherMap.org
+- [x] Get City Weather using City ID from OpenWeatherMap.org
+- [x] Parse weather data from OpenWeatherMap.org to extract overall weather description
+- [x] Parse weather data from OpenWeatherMap.org to extract temperature in Celsius
+- [x] Parse weather data from OpenWeatherMap.org to extract sunrise times
+- [x] Parse weather data from OpenWeatherMap.org to extract sunset times
 - [ ] Convert times to 12 hour format
 - [ ] Convert temperature to Fahrenheit
 - [ ] Return all data via API endpoint /weather
