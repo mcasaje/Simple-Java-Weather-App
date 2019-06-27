@@ -1,5 +1,8 @@
 package com.mcasaje.simplejavaweather.models.weather;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class SimpleWeatherData implements WeatherData {
 
     private final String locationName;
@@ -11,14 +14,14 @@ public class SimpleWeatherData implements WeatherData {
 
     public SimpleWeatherData(String locationName,
                              String weatherDescription,
-                             Double tempInCelsius,
-                             Double tempInFahrenheit,
+                             BigDecimal tempInCelsius,
+                             BigDecimal tempInFahrenheit,
                              String sunriseStandardTime,
                              String sunsetStandardTime) {
         this.locationName = locationName;
         this.weatherDescription = capitalize(weatherDescription);
-        this.tempInCelsius = tempInCelsius + " C";
-        this.tempInFahrenheit = tempInFahrenheit + " F";
+        this.tempInCelsius = tempInCelsius.setScale(1, RoundingMode.FLOOR) + " C";
+        this.tempInFahrenheit = tempInFahrenheit.setScale(1, RoundingMode.FLOOR) + " F";
         this.sunriseStandardTime = sunriseStandardTime;
         this.sunsetStandardTime = sunsetStandardTime;
     }

@@ -6,7 +6,7 @@
 
         function submitWeatherQuery() {
             const location = document.getElementById("location").value;
-            const loadingMessage = `Retrieving weather for '${location}'`;
+            const loadingMessage = `Searching weather data in '${location}'`;
             addWeatherLog(loadingMessage);
             const queryUrl = `${WEATHER_APP_API_URL}?location=${location}`;
             const httpMethod = "GET";
@@ -14,13 +14,22 @@
         }
 
         function displayWeatherData(data) {
-            addWeatherLog(data);
-            addWeatherLogLineBreak();
+            try {
+                data = JSON.parse(data);
+                addWeatherLogLineBreak();
+                addWeatherLog(`${data.forecast} in ${data.location}`);
+                addWeatherLog(`Temp: ${data.celsius} / ${data.fahrenheit}`);
+                addWeatherLog(`Sunrise: ${data.sunrise}`);
+                addWeatherLog(`Sunset: ${data.sunset}`);
+                addWeatherLogLineBreak();
+            } catch (e) {
+                addWeatherLog(data);
+            }
         }
 
-        function addWeatherLog(text) {
+        function addWeatherLog(value) {
             const newWeatherLogElement = document.createElement("span");
-            newWeatherLogElement.innerHTML = text;
+            newWeatherLogElement.innerHTML = value;
             document.getElementById("info").appendChild(newWeatherLogElement);
             addWeatherLogLineBreak();
         }
@@ -40,16 +49,36 @@
             ajax.open(method, url, true);
             ajax.send();
         }
+
+        function clearLogs() {
+            document.getElementById("info").innerHTML = "";
+        }
     </script>
 </head>
 <body>
 <h1>Simple Java Weather App</h1>
 <form onSubmit="return false">
+    <h4>
+        Enter a location to get the current weather forecast, sunrise and sunset times, and temperature.
+        This app leverages OpenWeatherMap.org, its search engine for locations and forecasts, and is on a best-effort
+        basis.
+    </h4>
+    <h5>
+        Example Inputs:
+    </h5>
+    <ul>
+        <li>Hong Kong, HK</li>
+        <li>London, GB</li>
+        <li>New York, US</li>
+        <li>Tokyo</li>
+        <li>Vancouver, Canada</li>
+    </ul>
     <label>
-        Location (eg. London, GB)
-        <input type="text" minlength="1" id="location"/>
+        Location&nbsp;
+        <input type="text" minlength="1" id="location" size="30"/>
     </label>
     <input type="submit" value="Get Weather Data!" onclick="submitWeatherQuery()"/>
+    <button onclick="clearLogs()">Clear Logs</button>
 </form>
 <div id="info"></div>
 </body>

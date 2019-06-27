@@ -1,11 +1,13 @@
 package com.mcasaje.simplejavaweather.models.weather;
 
+import java.math.BigDecimal;
+
 public interface WeatherDataFactory {
 
     WeatherData create(String locationName,
                        String weatherDescription,
-                       Double tempInCelsius,
-                       Double tempInFahrenheit,
+                       BigDecimal tempInCelsius,
+                       BigDecimal tempInFahrenheit,
                        String sunriseStandardTime,
                        String sunsetStandardTime);
 
