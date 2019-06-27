@@ -38,3 +38,5 @@ This will run the backend on http://localhost:8080/simplejavaweather/
 - [x] Convert temperature to Fahrenheit
 - [x] Return all data via API endpoint /weather
 - [ ] Extract server port and app variables into environment vars or configuration files
+- [ ] Unit tests
+- [ ] Environment Maven profiles
