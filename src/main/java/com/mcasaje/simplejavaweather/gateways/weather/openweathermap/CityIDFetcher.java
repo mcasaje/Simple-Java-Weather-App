@@ -21,7 +21,13 @@ class CityIDFetcher {
         String urlAddress = createURLAddress(URL_FORMAT, city, countryCode);
         HttpURLConnection connection = requestor.getRequest(urlAddress);
         String response = ResponseReader.readResponse(connection);
-        String cityID = regexParser.parse(response, CITY_ID_REGEX);
+        String cityID;
+        try {
+            cityID = regexParser.parse(response, CITY_ID_REGEX);
+        }
+        catch (Exception e) {
+            throw new RuntimeException("Could not retrieve city ID", e);
+        }
         requestor.closeConnection(connection);
         return cityID;
     }

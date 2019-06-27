@@ -17,11 +17,11 @@ public class SimpleRegexParser implements RegexParser {
         boolean foundMatch = matcher.find();
         if (foundMatch) {
             String foundGroup = matcher.group(1);
-            logger.info("Found regex group: " + foundGroup);
+            logger.debug("Found regex group: " + foundGroup);
             return foundGroup;
         }
         else {
-            logger.warn("Regex group not found");
+            logger.debug("Regex group not found");
             throw new RuntimeException("Regex group not found");
         }
     }
