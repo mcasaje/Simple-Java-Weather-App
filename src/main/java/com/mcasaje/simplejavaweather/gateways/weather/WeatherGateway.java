@@ -1,6 +1,6 @@
 package com.mcasaje.simplejavaweather.gateways.weather;
 
-import com.mcasaje.simplejavaweather.models.WeatherData;
+import com.mcasaje.simplejavaweather.models.weather.WeatherData;
 
 public interface WeatherGateway {
 

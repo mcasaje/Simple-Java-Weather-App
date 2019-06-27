@@ -1,7 +1,7 @@
 package com.mcasaje.simplejavaweather.gateways.weather.openweathermap;
 
-import com.mcasaje.simplejavaweather.models.WeatherData;
-import com.mcasaje.simplejavaweather.models.WeatherDataFactory;
+import com.mcasaje.simplejavaweather.models.weather.WeatherData;
+import com.mcasaje.simplejavaweather.models.weather.WeatherDataFactory;
 import com.mcasaje.simplejavaweather.utils.http.HTTPRequestor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

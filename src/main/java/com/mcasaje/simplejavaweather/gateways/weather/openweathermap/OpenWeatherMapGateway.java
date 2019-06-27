@@ -1,8 +1,8 @@
 package com.mcasaje.simplejavaweather.gateways.weather.openweathermap;
 
 import com.mcasaje.simplejavaweather.gateways.weather.WeatherGateway;
-import com.mcasaje.simplejavaweather.models.WeatherData;
-import com.mcasaje.simplejavaweather.models.WeatherDataFactory;
+import com.mcasaje.simplejavaweather.models.weather.WeatherData;
+import com.mcasaje.simplejavaweather.models.weather.WeatherDataFactory;
 import com.mcasaje.simplejavaweather.utils.http.HTTPRequestor;
 import com.mcasaje.simplejavaweather.utils.regex.RegexParser;
 

@@ -26,7 +26,7 @@ This will run the backend on http://localhost:8080/simplejavaweather/
 - [x] Enable CORS on backend API
 - [x] Create index page with form to submit to the backend API
 - [x] Install Guice dependency for dependency injection
-- [ ] Install marshaller dependency to/from JSON
+- [x] Install marshaller dependency to/from JSON
 - [x] Retrieve weather data from OpenWeatherMap.org
 - [x] Get City ID from OpenWeatherMap.org
 - [x] Get City Weather using City ID from OpenWeatherMap.org
@@ -34,7 +34,7 @@ This will run the backend on http://localhost:8080/simplejavaweather/
 - [x] Parse weather data from OpenWeatherMap.org to extract temperature in Celsius
 - [x] Parse weather data from OpenWeatherMap.org to extract sunrise times
 - [x] Parse weather data from OpenWeatherMap.org to extract sunset times
-- [ ] Convert times to 12 hour format
-- [ ] Convert temperature to Fahrenheit
-- [ ] Return all data via API endpoint /weather
+- [x] Convert times to 12 hour format
+- [x] Convert temperature to Fahrenheit
+- [x] Return all data via API endpoint /weather
 - [ ] Extract server port and app variables into environment vars or configuration files

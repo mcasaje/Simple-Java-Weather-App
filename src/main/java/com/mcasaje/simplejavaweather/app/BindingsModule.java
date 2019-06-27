@@ -3,10 +3,10 @@ package com.mcasaje.simplejavaweather.app;
 import com.google.inject.AbstractModule;
 import com.mcasaje.simplejavaweather.gateways.weather.WeatherGateway;
 import com.mcasaje.simplejavaweather.gateways.weather.openweathermap.OpenWeatherMapGateway;
-import com.mcasaje.simplejavaweather.models.SimpleWeatherDataFactory;
-import com.mcasaje.simplejavaweather.models.WeatherDataFactory;
-import com.mcasaje.simplejavaweather.utils.html.HTMLParser;
-import com.mcasaje.simplejavaweather.utils.html.jsoup.JSoupHTMLParser;
+import com.mcasaje.simplejavaweather.models.weather.SimpleWeatherDataFactory;
+import com.mcasaje.simplejavaweather.models.weather.WeatherDataFactory;
+import com.mcasaje.simplejavaweather.resources.weather.dto.SimpleWeatherDTOFactory;
+import com.mcasaje.simplejavaweather.resources.weather.dto.WeatherDTOFactory;
 import com.mcasaje.simplejavaweather.utils.http.HTTPRequestor;
 import com.mcasaje.simplejavaweather.utils.http.SimpleHTTPRequestor;
 import com.mcasaje.simplejavaweather.utils.regex.RegexParser;
@@ -17,7 +17,7 @@ public class BindingsModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(HTMLParser.class).to(JSoupHTMLParser.class);
+        bind(WeatherDTOFactory.class).to(SimpleWeatherDTOFactory.class);
         bind(HTTPRequestor.class).to(SimpleHTTPRequestor.class);
         bind(RegexParser.class).to(SimpleRegexParser.class);
         bind(WeatherDataFactory.class).to(SimpleWeatherDataFactory.class);

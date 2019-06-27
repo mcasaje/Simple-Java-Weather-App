@@ -1,4 +1,4 @@
-package com.mcasaje.simplejavaweather.models;
+package com.mcasaje.simplejavaweather.models.weather;
 
 public interface WeatherData {
 
@@ -7,10 +7,6 @@ public interface WeatherData {
     String getWeatherDescription();
 
     String getTempInCelsius();
-
-    String getSunriseMilitaryTime();
-
-    String getSunsetMilitaryTime();
 
     String getTempInFahrenheit();
 
