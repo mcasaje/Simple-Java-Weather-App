@@ -6,6 +6,7 @@
 
 - Maven 3 (v3.3.9)
 - Java 8 (v1.8.0_152)
+- Google Chrome ES6 (v75.0.3770.100)
 
 ### How to Run
 
