@@ -10,15 +10,20 @@
 
 ### How to Run
 
-1. Run the backend API
+#### 1. Run the backend API
 
 `mvn clean package exec:java`
 
-This will run the backend on http://localhost:8080/simplejavaweather/ 
+This will run the backend on http://localhost:8080/
 
-2. Open up the index.html in src/main/webapp on a modern browser that supports ECMAScript6.
+#### 2. Open up the index.html in src/main/webapp on a modern browser that supports ECMAScript6.
 
-3. Enter a location to receive the weather data for that area. (TODO)
+#### 3. Enter a location to receive the weather data for that area.
+
+#### 4. Calling the API directly (Optional)
+
+You can call the API directly at http://localhost:8080/weather?location=LOCATION and replace
+LOCATION with a sample string such as "Hong Kong, HK"
 
 
 ## TODO
